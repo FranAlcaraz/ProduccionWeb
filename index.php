@@ -12,21 +12,16 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <style type="text/css">
-            /*body {
-                padding-top: 5rem;
-            }*/
             .starter-template {
                 padding: 3rem 1.5rem;
                 text-align: center;
             }
         </style>
+        <?php include('header.php'); ?>
     </head>
-        
     <body>
-    <?php include('header.php'); ?>
         <main role="main" class="container">
-
-            <?php $secc = isset($_GET['seccion']) ? $_GET['seccion'] : 'inicio'; 
+            <?php $secc = isset($_GET['seccion']) ? $_GET['seccion'] : 'home'; 
             
             switch($secc){
                 case 'home':

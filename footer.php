@@ -1,6 +1,8 @@
 <style>
     footer{
     color: white;
+    margin-top: 25px;
+    padding-top: 25px;
     }
     a{
     color: white;
@@ -10,20 +12,18 @@
         color: white;
         text-decoration: underline;
     }
+    
 </style>
-  
-      <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <footer class="page-footer font-small bg-primary mx-auto">
+   <footer class="page-footer font-small bg-primary justify-content-center">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
-        <div class="col-4 text-center mx-auto">
+        <div class="col-6 text-center">
           <h5>DVapor</h5>
           <p>eCommerce que no persigue fines de lucro, unicamente propositos educativos (?)</p>
           </div>
         <hr class="clearfix w-100 d-md-none pb-3">
 
-        <div class="col-8 mx-auto">
+        <div class="col-6 text-center">
            
             <h5>Nuestras Marcas</h5>
 
