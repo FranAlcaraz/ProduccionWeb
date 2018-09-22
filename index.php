@@ -12,9 +12,9 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <style type="text/css">
-            body {
+            /*body {
                 padding-top: 5rem;
-            }
+            }*/
             .starter-template {
                 padding: 3rem 1.5rem;
                 text-align: center;
