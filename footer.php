@@ -14,6 +14,8 @@
     }
     
 </style>
+        <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <footer class="page-footer font-small bg-primary justify-content-center">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
