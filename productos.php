@@ -1,11 +1,17 @@
 <?php 
 
-include ('config/mysql.php');
+//include ('config/mysql.php');
 
 
         try {
               $con = new PDO('mysql:host='.$hostname.';dbname='.$database, $username,$password);
-              print "Conexión exitosa!";
+            
+            ?>
+             <script>
+                console.log("Conexion Exitosa");
+                </script>
+             <?php
+              //print "Conexión exitosa!";
         }
         catch (PDOException $e) {
               print "¡Error!: " . $e->getMessage();

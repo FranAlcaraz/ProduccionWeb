@@ -17,7 +17,9 @@
                 text-align: center;
             }
         </style>
-        <?php include('header.php'); ?>
+        <?php include('header.php'); 
+            include('config/mysql.php');
+        ?>
     </head>
     <body>
         <main role="main" class="container">
