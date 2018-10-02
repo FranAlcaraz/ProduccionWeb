@@ -5,7 +5,7 @@
     padding-top: 25px;
     }
     a{
-    color: white;
+    /*color: white;*/
     text-decoration: none;
     }
     a:hover{
