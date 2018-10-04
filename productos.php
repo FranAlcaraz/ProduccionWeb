@@ -189,7 +189,7 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
                 <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname']?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><?=$row['Nombre_Articulo']?></a>
+                    <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>"><?=$row['Nombre_Articulo']?></a>
                   </h4>
                   <h5>$<?=$row['Precio'];?></h5>
                   <p class="card-text"><?=$row['Articulo_Descripcion'];?></p>
@@ -199,6 +199,27 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
                 </div>
               </div>
             </div>
+            
+            
+            <div class="modal fade" id="<?=$row['ID_Articulo'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label"><?=$row['Nombre_Articulo']?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?=$row['Articulo_Descripcion'];?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
               
               }
@@ -216,3 +237,25 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
 
     </div>
     <!-- /.container -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
