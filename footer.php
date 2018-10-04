@@ -12,7 +12,10 @@
         color: white;
         text-decoration: underline;
     }
-    
+    .linkdv{
+        color: white !important;
+        text-decoration: none;
+    }
 </style>
         <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -48,7 +51,7 @@
     </div>
 
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://davinci.edu.ar">Escuela de Arte Multimedial Da Vinci</a>
+      <a href="https://davinci.edu.ar" id="linkdv">Escuela de Arte Multimedial Da Vinci</a>
     </div>
 
 
