@@ -17,15 +17,16 @@
               print "¡Error!: " . $e->getMessage();
               die();
         }
-if (isset($_GET['marcas'])){
-$mcs = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos'; 
+if (isset($_GET['marcas']) && isset($_GET['categoria']) ){
+    $mcs = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
+    $cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos';    
             
             switch($mcs){
                 case '1':
                 case '2':
                 case '3':
                 case '4':
-                    $sql="SELECT * FROM Articulos WHERE ID_Marca=$mcs";
+                    $sql="SELECT * FROM Articulos WHERE ID_Marca=$mcs AND ID_Categoria=$cat";
                 break;
                 default:
                     $sql="SELECT * FROM Articulos";
@@ -68,10 +69,38 @@ $cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos';
             Marcas
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <?php echo '<a class="dropdown-item" href="index.php?seccion=productos&marcas=1">SMOK</a>'?>
-            <a class="dropdown-item" href="index.php?seccion=productos&marcas=2">VAPORESSO</a>
-            <a class="dropdown-item" href="index.php?seccion=productos&marcas=3">VOOPOO</a>
-            <a class="dropdown-item" href="index.php?seccion=productos&marcas=4">IJOY</a>
+           <button class=" dropdown-item"
+                  type="button" id="dropdownMenu2" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">SMOK</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=1&categoria=1">Atomizadores</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=1&categoria=2">Mods</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=1&categoria=4">Resistencias</a>
+          </div>
+            <button class=" dropdown-item"
+                  type="button" id="dropdownMenu3" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">VAPORESSO</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=2&categoria=1">Atomizadores</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=2&categoria=2">Mods</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=2&categoria=4">Resistencias</a>
+          </div>
+           <button class=" dropdown-item"
+                  type="button" id="dropdownMenu4" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">VOOPOO</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=3&categoria=1">Atomizadores</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=3&categoria=2">Mods</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=3&categoria=4">Resistencias</a>
+          </div>
+                     <button class=" dropdown-item"
+                  type="button" id="dropdownMenu4" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">IJOY</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=1">Atomizadores</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=2">Mods</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=4">Resistencias</a>
+          </div>
           </div>
         </div>
         <br>
