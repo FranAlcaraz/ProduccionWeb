@@ -17,6 +17,36 @@
               print "¡Error!: " . $e->getMessage();
               die();
         }
+if (isset($_GET['marcas'])){
+$mcs = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos'; 
+            
+            switch($mcs){
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                    $sql="SELECT * FROM Articulos WHERE ID_Marca=$mcs";
+                break;
+                default:
+                    $sql="SELECT * FROM Articulos";
+            }
+}else if(isset ($_GET['categoria'])){
+$cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos'; 
+            
+            switch($cat){
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                    $sql="SELECT * FROM Articulos WHERE ID_Categoria=$cat";
+                break;
+                default:
+                    $sql="SELECT * FROM Articulos";
+            }
+}else{
+    $sql="SELECT * FROM Articulos";
+}
+
 
     ?>
 
@@ -38,7 +68,7 @@
             Marcas
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <a class="dropdown-item" href="index.php?seccion=productos&marcas=1">SMOK</a>
+            <?php echo '<a class="dropdown-item" href="index.php?seccion=productos&marcas=1">SMOK</a>'?>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=2">VAPORESSO</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=3">VOOPOO</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=4">IJOY</a>
@@ -96,9 +126,7 @@
 
           <div class="row">
             <?php
-              $sql = "SELECT * FROM Articulos";
-              
-              $sql2 = "SELECT * FROM categorias.nombre_categoria";
+             // $sql = "SELECT * FROM Articulos";
               
             $art = $con->query($sql);
         
