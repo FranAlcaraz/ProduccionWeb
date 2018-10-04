@@ -60,7 +60,6 @@
                 <div class="card">
                   <h3 class="card-header">Vape Tanks</h3>
                   <div class="card-body">
-                    <h4 class="card-title">Special title treatment</h4>
                     <img src="img/vapetank.jpg" alt="tanks">
                     <a href="index.php?seccion=productos&categoria=3" class="btn btn-primary">Ver Más</a>
                   </div>
