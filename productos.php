@@ -161,7 +161,7 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>"><?=$row['Nombre_Articulo']?></a>
