@@ -39,6 +39,7 @@ $cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos';
                 case '2':
                 case '3':
                 case '4':
+                case '5':    
                     $sql="SELECT * FROM Articulos WHERE ID_Categoria=$cat";
                 break;
                 default:
