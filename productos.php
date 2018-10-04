@@ -35,11 +35,13 @@
           <button class="btn btn-primary dropdown-toggle"
                   type="button" id="dropdownMenu1" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Marcas
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <a class="dropdown-item" href="#!">Action</a>
-            <a class="dropdown-item" href="#!">Another action</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=1">SMOK</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=2">VAPORESSO</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=3">VOOPOO</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&marcas=4">IJOY</a>
           </div>
         </div>
         <br>
@@ -47,25 +49,17 @@
           <button class="btn btn-primary dropdown-toggle"
                   type="button" id="dropdownMenu1" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Categorias
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <a class="dropdown-item" href="#!">Action</a>
-            <a class="dropdown-item" href="#!">Another action</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&categoria=1">Atomizador</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&categoria=2">Mods</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&categoria=3">Liquidos</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&categoria=4">Resistencias</a>
+            <a class="dropdown-item" href="index.php?seccion=productos&categoria=5">Tanques</a>
           </div>
         </div>
         <br>
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle"
-                  type="button" id="dropdownMenu1" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <a class="dropdown-item" href="#!">Action</a>
-            <a class="dropdown-item" href="#!">Another action</a>
-          </div>
-        </div>
           </div>
 
         </div>
