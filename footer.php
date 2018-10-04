@@ -5,7 +5,7 @@
     padding-top: 25px;
     }
     a{
-    /*color: white;*/
+    color: white;
     text-decoration: none;
     }
     a:hover{
@@ -16,6 +16,9 @@
         color: white !important;
         text-decoration: none;
     }
+  .nombreArt {
+  color: black !important;
+}
 </style>
         <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

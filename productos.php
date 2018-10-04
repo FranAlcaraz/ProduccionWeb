@@ -124,7 +124,7 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=4">Resistencias</a>
           </div>
             </div>
-            <hr>
+            <hr/>
             <h3>Categorias</h3>
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle"
@@ -161,10 +161,10 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>"><?=$row['Nombre_Articulo']?></a>
+                    <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" class="nombreArt"><?=$row['Nombre_Articulo']?></a>
                   </h4>
                   <h5>$<?=$row['Precio'];?></h5>
                   <p class="card-text"><?=$row['Articulo_Descripcion'];?></p>
@@ -185,7 +185,7 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label"><?=$row['Nombre_Articulo']?></h5>
+        <h5 class="modal-title" id="<?=$row['ID_Articulo'];?>"><?=$row['Nombre_Articulo']?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
