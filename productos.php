@@ -71,16 +71,18 @@
           <div class="row">
             <?php
               $sql = "SELECT * FROM Articulos";
+              
               $sql2 = "SELECT * FROM categorias.nombre_categoria";
               
             $art = $con->query($sql);
+        
               foreach($art as $row){
-              
+           
               ?>
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/MODS/<?=$row['Imgname']?>.jpg" alt=""></a>
+                <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname']?>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#"><?=$row['Nombre_Articulo']?></a>
