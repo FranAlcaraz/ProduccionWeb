@@ -38,9 +38,21 @@ $cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos';
                 case '1':
                 case '2':
                 case '3':
-                case '4':
-                case '5':    
+                case '4': 
                     $sql="SELECT * FROM Articulos WHERE ID_Categoria=$cat";
+                break;
+                default:
+                    $sql="SELECT * FROM Articulos";
+            }
+}else if(isset ($_GET['marcas'])){
+$marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos'; 
+            
+            switch($marc){
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                    $sql="SELECT * FROM Articulos WHERE ID_Marca=$marc";
                 break;
                 default:
                     $sql="SELECT * FROM Articulos";
@@ -61,50 +73,59 @@ $cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos';
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Shop Name</h1>
+          <h1 class="my-4">Productos</h1>
+          <hr>
+          <h3>Marcas</h3>
           <div class="list-group">
-           <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle"
-                  type="button" id="dropdownMenu1" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-            Marcas
+          <div class="btn-group">
+          <a href="index.php?seccion=productos&marcas=1"><button type="button" class="btn btn-primary btn-block">SMOK</button></a>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-           <button class=" dropdown-item"
-                  type="button" id="dropdownMenu2" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">SMOK</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=1&categoria=1">Atomizadores</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=1&categoria=2">Mods</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=1&categoria=4">Resistencias</a>
           </div>
-            <button class=" dropdown-item"
-                  type="button" id="dropdownMenu3" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">VAPORESSO</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            </div>
+            <br>
+            <div class="btn-group">
+          <a href="index.php?seccion=productos&marcas=2"><button type="button" class="btn btn-primary btn-block">VAPORESSO</button></a>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=2&categoria=1">Atomizadores</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=2&categoria=2">Mods</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=2&categoria=4">Resistencias</a>
           </div>
-           <button class=" dropdown-item"
-                  type="button" id="dropdownMenu4" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">VOOPOO</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            </div>
+            <br>
+            <div class="btn-group">
+          <a href="index.php?seccion=productos&marcas=3"><button type="button" class="btn btn-primary btn-block">VOOPOO</button></a>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=3&categoria=1">Atomizadores</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=3&categoria=2">Mods</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=3&categoria=4">Resistencias</a>
           </div>
-                     <button class=" dropdown-item"
-                  type="button" id="dropdownMenu4" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">IJOY</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            </div>
+            <br>
+            <div class="btn-group">
+          <a href="index.php?seccion=productos&marcas=1"><button type="button" class="btn btn-primary btn-block">IJOY</button></a>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=1">Atomizadores</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=2">Mods</a>
             <a class="dropdown-item" href="index.php?seccion=productos&marcas=4&categoria=4">Resistencias</a>
           </div>
-          </div>
-        </div>
-        <br>
+            </div>
+            <hr>
+            <h3>Categorias</h3>
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle"
                   type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -116,7 +137,6 @@ $cat = isset($_GET['categoria']) ? $_GET['categoria'] : 'productos';
             <a class="dropdown-item" href="index.php?seccion=productos&categoria=2">Mods</a>
             <a class="dropdown-item" href="index.php?seccion=productos&categoria=3">Liquidos</a>
             <a class="dropdown-item" href="index.php?seccion=productos&categoria=4">Resistencias</a>
-            <a class="dropdown-item" href="index.php?seccion=productos&categoria=5">Tanques</a>
           </div>
         </div>
         <br>
