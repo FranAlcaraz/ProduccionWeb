@@ -57,7 +57,7 @@ include("config/mysql.php");
             </div>
                 
         
-             <h3 class="justiy-content-center">Productos Destacados</h3>
+             <h3 class="justify-content-center">Productos Destacados</h3>
             <div class="row justify-content-center">
               
               <?php
@@ -96,7 +96,7 @@ include("config/mysql.php");
                 
                 ?>
               
-              <br>
+              
                <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
                   <h3 class="card-header">Mods</h3>
