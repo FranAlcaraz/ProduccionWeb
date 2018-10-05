@@ -1,4 +1,25 @@
+<?php
 
+include("config/mysql.php");
+        try {
+              $con = new PDO('mysql:host='.$hostname.';dbname='.$database, $username,$password);
+            
+            ?>
+             <script>
+                console.log("Conexion Exitosa");
+                </script>
+             <?php
+              //print "Conexión exitosa!";
+        }
+        catch (PDOException $e) {
+              print "¡Error!: " . $e->getMessage();
+              die();
+        }
+
+
+
+
+?>
 <!-- Page Content -->
 <div class="container">
 
@@ -34,8 +55,48 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
+                
+        
+             <h3 class="justiy-content-center">Productos Destacados</h3>
             <div class="row justify-content-center">
+              
+              <?php
+
+                for($i=0; $i<=5 ;$i++){
+                $min = 1;
+                $max = 20;
+                $alea = rand($min, $max);
+                
+                $sql3 = "SELECT * FROM articulos WHERE ID_Articulo = '$alea';";
+                $count = $con->query($sql3);
+                 foreach ($count as $row) { 
+                  
+                ?>
+                    <div class="col-md-2 col-md-2 mb-2">
+                      <div class="card h-100">
+                        <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" alt=""></a>
+                        <div class="card-body">
+                          <h4 class="card-title">
+                            <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" class="nombreArt"><?=$row['Nombre_Articulo']?></a>
+                          </h4>
+                          <h5>$<?=$row['Precio'];?></h5>
+                          <p class="card-text"><?=$row['Articulo_Descripcion'];?></p>
+                        </div>
+                        <div class="card-footer">
+                          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                      </div>
+                    </div>
+                        
+                        
+                        <?php
+                }
+                    
+                }
+                
+                ?>
+              
+              <br>
                <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
                   <h3 class="card-header">Mods</h3>
@@ -66,54 +127,7 @@
                 </div>
                 
                 </div>
-                <!--
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Uno</a>
-                            </h4>
-                            <h5>$99.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Two</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Item Three</a>
-                            </h4>
-                            <h5>$24.99</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
-                    </div>
-                </div>-->
+ 
             </div>
         </div>
     </div>

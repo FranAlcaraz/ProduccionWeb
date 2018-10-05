@@ -79,7 +79,7 @@ $marc = isset($_GET['marcas']) ? $_GET['marcas'] : 'productos';
           <div class="list-group">
           <div class="btn-group">
           <a href="index.php?seccion=productos&marcas=1"><button type="button" class="btn btn-primary btn-block">SMOK</button></a>
-          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
