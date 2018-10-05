@@ -233,18 +233,16 @@ if(isset($_GET['orden'])){
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <?=$row['Articulo_Descripcion'];?>
-
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname'].".jpg"?>" data-src="holder.js/900x400?theme=social" alt="First slide">
+                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname'].".jpg"?>"  alt="First slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."2.jpg"?>" data-src="holder.js/900x400?theme=industrial" alt="Second slide">
+                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."2.jpg"?>"  alt="Second slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."3.jpg"?>" data-src="holder.js/900x400?theme=industrial" alt="Second slide">
+                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."3.jpg"?>" alt="Second slide">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -255,6 +253,50 @@ if(isset($_GET['orden'])){
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
+                                <br>
+                                    <span class="badge badge-pill badge-primary" style="font-size: 15px;">
+                                    <?php echo $row['Nombre_Articulo'];?>
+                                    </span>
+                                    
+                                   <span class="badge badge-pill badge-primary" style="font-size: 15px;">
+                                    <?php $marca = $row['ID_Marca'];
+                                    switch($marca){
+                        case 1: echo "SMOK";
+                            break;
+                        case 2: echo "VAPORESSO";
+                            break;
+                        case 3: echo "VOOPOO";
+                            break;
+                        case 4: echo "IJOY";
+                            break;
+                        case 5: echo "ELEMENT";
+                            break;
+                        case 6: echo "NASTY";
+                            break;
+                        case 7: echo "PALERMO VAPORS";
+                            break;
+                    } ?>
+                                    </span>
+                                    <span class="badge badge-pill badge-primary" style="font-size: 15px;">
+                                    <?php $category = $row['ID_Categoria'];
+                                    switch($category){
+                        case 1: echo "Atomizador";
+                            break;
+                        case 2: echo "Mod";
+                            break;
+                        case 3: echo "Liquido";
+                            break;
+                        case 4: echo "Resistencia";
+                            break;
+                    }?>
+                                    </span>
+                                    <br>
+                                    <hr>
+                                    <h7>Descripcion</h7> 
+                                    <br>
+                                    <?=$row['Articulo_Descripcion'];?>
+                                    <br>
+                                    <h5>Precio: <?php echo "$".$row['Precio'];?></h5>
                                 </div>
                             </div>
                             <div class="modal-footer">
