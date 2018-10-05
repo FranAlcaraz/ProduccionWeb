@@ -2,7 +2,7 @@
 
 include("config/mysql.php");
         try {
-              $con = new PDO('mysql:host='.$hostname.';dbname='.$database, $username,$password);
+              $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
             
             ?>
              <script>
@@ -37,6 +37,7 @@ include("config/mysql.php");
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
+                       
                         <img class="d-block img-fluid" src="img/slider1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
@@ -87,6 +88,49 @@ include("config/mysql.php");
                         </div>
                       </div>
                     </div>
+                         
+                         
+                          <div class="modal fade" id="<?=$row['ID_Articulo'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="<?=$row['ID_Articulo'];?>"><?=$row['Nombre_Articulo']?></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <?=$row['Articulo_Descripcion'];?>
+
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname'].".jpg"?>" data-src="holder.js/900x400?theme=social" alt="First slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."2.jpg"?>" data-src="holder.js/900x400?theme=industrial" alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."3.jpg"?>" data-src="holder.js/900x400?theme=industrial" alt="Second slide">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         
                         
                         <?php
@@ -135,5 +179,7 @@ include("config/mysql.php");
     </div>
 </div>
 
+
+            
 
 

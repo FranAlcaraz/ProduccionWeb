@@ -4,7 +4,7 @@
 
 
 try {
-    $con = new PDO('mysql:host='.$hostname.';dbname='.$database, $username,$password);
+    $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
 
 ?>
 <script>
