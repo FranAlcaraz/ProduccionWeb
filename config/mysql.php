@@ -3,7 +3,7 @@
 		$database   = 'davincivapor';
 		$username 	= 'root';
 		$password 	= '';
-        $port       = 3308;
+        $port       = 3306;
 
 
 
