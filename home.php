@@ -96,13 +96,15 @@ include("config/mysql.php");
                 
                 ?>
               
-              
+              </div>
+              <br>
+              <div class="row">
                <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
                   <h3 class="card-header">Mods</h3>
                   <div class="card-body">
                     <!--h4 class="card-title">Special title treatment</h4>-->
-                    <img src="img/mods.jpg" alt="Mods">
+                    <img src="img/mods.jpg" alt="Mods" width="300" height="300">
                     <a href="index.php?seccion=productos&categoria=2" class="btn btn-primary">Ver Más</a>
                   </div>
                 </div>
@@ -122,7 +124,7 @@ include("config/mysql.php");
                   <h3 class="card-header">Vape Tanks</h3>
                   <div class="card-body">
                     <img src="img/vapetank.jpg" alt="tanks">
-                    <a href="index.php?seccion=productos&categoria=3" class="btn btn-primary">Ver Más</a>
+                    <a href="index.php?seccion=productos&categoria=1" class="btn btn-primary">Ver Más</a>
                   </div>
                 </div>
                 

@@ -167,8 +167,8 @@ if(isset($_GET['orden'])){
             ?>
             <br>
             <div class="row">
-                <div class="col-6"><h3>Ordenar Por: </h3></div>
-                <div class="col-6">
+                <div class="col-3"><h3>Ordenar Por</h3></div>
+                <div class="col-9">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
                             <a class="nav-link active" href="<?php echo $urlActual.'&orden=1'; ?>">A - Z</a>
@@ -188,6 +188,9 @@ if(isset($_GET['orden'])){
                     </ul>
                 </div>
             </div>
+            <br>
+            <hr>
+            <br>
 
             <div class="row">
                 <?php
