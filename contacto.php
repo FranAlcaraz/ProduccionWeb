@@ -32,7 +32,7 @@ include('config/mysql.php');
 					<textarea name="comentario" id="comentario" cols="30" rows="10" class="form-control"></textarea>
 				</div>
 				<div class="form-group">
-				<button id="enviar" class="btn btn-primary" type="submit" name="Enviar">Enviar Review</button><br>
+				<button id="enviar" class="btn btn-primary disabled" type="button" name="Enviar">Enviar Review</button><br>
 				<br>
             </div>
 				
