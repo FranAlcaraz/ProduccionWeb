@@ -29,6 +29,7 @@
                 case 'home':
                 case 'productos':
                 case 'contacto':
+                case 'login':
                     include($secc.'.php');
                 break;
                 default:
