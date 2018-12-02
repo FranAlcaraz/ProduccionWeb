@@ -1,11 +1,7 @@
 <?php 
-
 //include ('config/mysql.php');
-
-
 try {
     $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
-
 ?>
 <script>
     console.log("Conexion Exitosa");
@@ -72,11 +68,7 @@ if(isset($_GET['orden'])){
         case 4: $sql.= ' ORDER BY Precio ASC';
     }
 }
-
 ?>
-
-
-
 
 <div class="container">
 
@@ -152,7 +144,6 @@ if(isset($_GET['orden'])){
                 </div>
                 <br>
             </div>
-
         </div>
         <!-- /.col-lg-3 -->
 
@@ -161,7 +152,6 @@ if(isset($_GET['orden'])){
             $urlActual = $_SERVER['REQUEST_URI'];
             if(isset($_GET['orden'])){
                 $urlExp = explode('&orden=', $urlActual);
-                //$urlActual = urlExplotada[0];
                 $urlActual = $urlExp[0];
             }
             ?>
@@ -194,102 +184,27 @@ if(isset($_GET['orden'])){
 
             <div class="row">
                 <?php
-
                 $art = $con->query($sql);
-
                 foreach($art as $row){
-
                 ?>
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" alt=""></a>
+                        <a href="index.php?seccion=detalle&id=<?php echo $row['ID_Articulo'];?>"><img class="card-img-top" src="img/<?=$row['Imgname'].".jpg"?>" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" class="nombreArt"><?=$row['Nombre_Articulo']?></a>
+                                <a href="index.php?seccion=detalle&id=<?php echo $row['ID_Articulo'];?>" class="nombreArt"><?=$row['Nombre_Articulo'];?></a>
                             </h4>
                             <h5>$<?=$row['Precio'];?></h5>
-                            <p class="card-text"><?=$row['Articulo_Descripcion'];?></p>
+                            <p class="card-text"><?php echo substr($row['Articulo_Descripcion'], 0, 30);?></p>
                         </div>
-                        <!-- Button trigger modal -->
-
-
-                        <!-- Modal -->
+        
 
                         <div class="card-footer">
                             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="modal fade" id="<?=$row['ID_Articulo'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="<?=$row['ID_Articulo'];?>"><?=$row['Nombre_Articulo']?></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active">
-                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname'].".jpg"?>"  alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."2.jpg"?>"  alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="d-block w-100" src="img/<?php echo $row['Imgname']."3.jpg"?>" alt="Second slide">
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                <br>
-                                    <span class="badge badge-pill badge-primary" style="font-size: 15px;">
-                                    <?php echo $row['Nombre_Articulo'];?>
-                                    </span>
-                                    
-                                   <span class="badge badge-pill badge-primary" style="font-size: 15px;">
-                                    <?php $marca = $row['ID_Marca'];
-                                    switch($marca){
-                        case 1: echo "SMOK";
-                            break;
-                        case 2: echo "VAPORESSO";
-                            break;
-                        case 3: echo "VOOPOO";
-                            break;
-                        case 4: echo "IJOY";
-                            break;
-                        case 5: echo "ELEMENT";
-                            break;
-                        case 6: echo "NASTY";
-                            break;
-                        case 7: echo "PALERMO VAPORS";
-                            break;
-                    } ?>
-                                    </span>
-                                    <span class="badge badge-pill badge-primary" style="font-size: 15px;">
-                                    <?php $category = $row['ID_Categoria'];
-                                    switch($category){
-                        case 1: echo "Atomizador";
-                            break;
-                        case 2: echo "Mod";
-                            break;
-                        case 3: echo "Liquido";
-                            break;
-                        case 4: echo "Resistencia";
-                            break;
-                    }?>
-                                    </span>
                                     <br>
                                     <hr>
                                     <h7>Descripcion</h7> 
@@ -298,31 +213,7 @@ if(isset($_GET['orden'])){
                                     <br>
                                     <h5>Precio: <?php echo "$".$row['Precio'];?></h5>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                <?php } //cierra foreach $art as $row ?>
                             </div>
                         </div>
                     </div>
-                </div>
-                <?php
-
-
-                }
-                ?>
-
-
-            </div>
-            <!-- /.row -->
-
-        </div>
-        <!-- /.col-lg-9 -->
-
-    </div>
-    <!-- /.row -->
-
-</div>
-<!-- /.container -->
-<!-- Button trigger modal -->
-
-<!-- Modal -->

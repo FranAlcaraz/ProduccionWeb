@@ -21,6 +21,11 @@ include("config/mysql.php");
 
 ?>
 <!-- Page Content -->
+
+<style>
+    a{color:dodgerblue;!important}
+    a:hover{color:hotpink;!important}
+</style>
 <div class="container">
 
     <div class="row">
@@ -81,7 +86,8 @@ include("config/mysql.php");
                             <a href="#" data-toggle="modal" data-target="#<?=$row['ID_Articulo'];?>" class="nombreArt"><?=$row['Nombre_Articulo']?></a>
                           </h4>
                           <h5>$<?=$row['Precio'];?></h5>
-                          <p class="card-text"><?=$row['Articulo_Descripcion'];?></p>
+                          <p class="card-text"><?php echo substr($row['Articulo_Descripcion'], 0, 30);?> ...
+                          <a href="index.php?seccion=detalle=<?php echo $row['ID_Articulo'];?>">ver más</a></p>
                         </div>
                         <div class="card-footer">
                           <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
