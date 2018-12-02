@@ -198,22 +198,14 @@ if(isset($_GET['orden'])){
                             <h5>$<?=$row['Precio'];?></h5>
                             <p class="card-text"><?php echo substr($row['Articulo_Descripcion'], 0, 30);?></p>
                         </div>
-        
-
                         <div class="card-footer">
                             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                         </div>
                     </div>
                 </div>
-                                    <br>
-                                    <hr>
-                                    <h7>Descripcion</h7> 
-                                    <br>
-                                    <?=$row['Articulo_Descripcion'];?>
-                                    <br>
-                                    <h5>Precio: <?php echo "$".$row['Precio'];?></h5>
-                                </div>
+                
                                 <?php } //cierra foreach $art as $row ?>
                             </div>
                         </div>
                     </div>
+                </div>
