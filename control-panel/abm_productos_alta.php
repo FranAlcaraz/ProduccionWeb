@@ -119,13 +119,13 @@ $subc = "SELECT * FROM subcategoria";
 <script>
 $(document).ready(function(){
     $('action').change(function(){
+        if($(this).val() != ''){
         var action = $(this).Attr("id");
         var query = $(this).val();
         var result = '';
         if (action == "categoria")
             {
                 result = 'subcategoria';
-                
             }
         $.ajax({
             url:"prosaltacat.php",
@@ -135,6 +135,7 @@ $(document).ready(function(){
                 $('#'+result).html(data);
             }
         })
+        }
     })
 })
 
