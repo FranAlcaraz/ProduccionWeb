@@ -20,7 +20,7 @@ catch (PDOException $e) {
 	  
 	  $select = "SELECT * FROM articulos;";
         $update = "vacio";
-        $delete = "vacio";
+          $delete = "vacio";
           
     $artSelect = $con->query($select);
     ?>

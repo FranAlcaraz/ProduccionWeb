@@ -32,6 +32,7 @@
                 case 'login':
                 case 'detalle':
                 case 'abm_productos':
+                case 'abm_productos_alta':
                     include($secc.'.php');
                 break;
                 default:
