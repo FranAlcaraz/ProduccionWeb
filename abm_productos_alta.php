@@ -1,3 +1,22 @@
+<?php 
+//include ('config/mysql.php');
+try {
+    $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
+?>
+<script>
+    console.log("Conexion Exitosa");
+</script>
+<?php
+    //print "Conexión exitosa!";
+}
+catch (PDOException $e) {
+    print "¡Error!: " . $e->getMessage();
+    die();
+}
+$marca = "SELECT * FROM marca";
+$cat = "SELECT * FROM categoria";
+$subc = "SELECT * FROM subcategoria";
+?>
 
 <br>
 <h1 class="text-center">Alta de productos</h1>
@@ -9,23 +28,43 @@
     <input type="text" class="form-control" id="nombreArticulo" aria-describedby="Nombre" placeholder="Ingrese el nombre del artículo">
     <small id="Nombre" class="form-text text-muted">Debe ser inferior a 100 caractéres.</small>
   </div>
+<!-- SELECCIONAR MARCA -->
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleSelect1">Example select</label>
+    <label for="exampleSelect1">Seleccionar Marca</label>
     <select class="form-control" id="exampleSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <?php 
+        $art = $con->query($marca);
+        foreach($art as $row){ ?>
+          <option id="<?=$row['ID_Marca'];?>"><?=$row['Nombre_Marca'];?></option>  
+        <?php } ?>
     </select>
   </div>
+  <!-- SELECCIONAR CATEGORIA -->
+    <div class="form-group">
+    <label for="exampleSelect2">Seleccionar Categoría</label>
+    <select class="form-control" id="exampleSelect2">
+      <?php 
+        $art2 = $con->query($cat);
+        foreach($art2 as $row){ ?>
+          <option id="<?=$row['ID_Categoria'];?>"><?=$row['Nombre_Categoria'];?></option>  
+        <?php } ?>
+    </select>
+  </div>
+     
+     <!--  subcategoria -->
+      <div class="form-group">
+    <label for="exampleSelect2">Seleccionar Categoría</label>
+    <select name="subcategoria" class="form-control" id="subcateogira">
+      
+          <option value=""></option>  
+        
+    </select>
+  </div>
+  
+  
   <div class="form-group">
-    <label for="exampleSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleSelect2">
+    <label for="categoria">Example multiple select</label>
+    <select multiple class="form-control" id="categoria">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -71,3 +110,33 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+    $('action').change(function(){
+        var action = $(this).Attr("id");
+        var query = $(this).val();
+        var result = '';
+        if (action == "categoria")
+            {
+                result = 'subcategoria';
+                
+            }
+        $.ajax({
+            url:"prosaltacat.php",
+            method: "POST",
+            data:{action:action, query:query},
+            sucess:function(data){
+                $('#'+result).html(data);
+            }
+        })
+    })
+})
+
+
+</script>
