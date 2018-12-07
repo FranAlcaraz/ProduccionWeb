@@ -98,10 +98,18 @@
                 $marca = "SELECT * FROM marca";
                 $qmarca = $con->query($marca);
                 foreach($qmarca as $m){
+                    if($m['ID_Marca'] == $row['ID_Marca']){?>
+                       
+                        <option value="<?php echo $m['ID_Marca'];?>" <?php echo ' selected="selected"'; ?>><?php echo $m['Nombre_Marca'];?></option>
+                        
+                        <?php
+                    }else{
 
                 ?>
                 <option value="<?php echo $m['ID_Marca'];?>"><?php echo $m['Nombre_Marca'];?></option>
                 <?php
+                        
+                    }
                 };
 
                 ?>
@@ -123,10 +131,21 @@
                 $categoria = "SELECT * FROM categoria";
                 $qcategoria = $con->query($categoria);
                 foreach($qcategoria as $q){
+                    
+                    
+                                        if($q['ID_Categoria'] == $row['ID_Categoria']){?>
+                       
+                        <option value="<?php echo $q['ID_Cateogria'];?>" <?php echo ' selected="selected"'; ?>><?php echo $q['Nombre_Categoria'];?></option>
+                        
+                        <?php
+                    }else{
 
                 ?>
                 <option value="<?php echo $q['ID_Categoria'];?>"><?php echo $q['Nombre_Categoria'];?></option>
                 <?php
+                }
+                                            
+                                            
                 };
 
                 ?>
@@ -148,10 +167,20 @@
                 $scategoria = "SELECT * FROM subcategoria";
                 $qscategoria = $con->query($scategoria);
                 foreach($qscategoria as $s){
+                    
+                                        if($s['ID_Subcategoria'] == $row['ID_Subcategoria']){?>
+                       
+                        <option value="<?php echo $s['ID_Subcateogria'];?>" <?php echo ' selected="selected"'; ?>><?php echo $s['Subcategoria'];?></option>
+                        
+                        <?php
+                    }else{
 
+              
                 ?>
                 <option value="<?php echo $s['ID_Subcategoria'];?>"><?php echo $s['Subcategoria'];?></option>
                 <?php
+                                            
+                                        }
                 };
 
                 ?>
