@@ -17,7 +17,7 @@
                 text-align: center;
             }
         </style>
-        <?php include('includes/header-control.php'); 
+        <?php include('header-adm.php'); 
             include('../config/mysql.php');
         ?>
     </head>
@@ -43,7 +43,7 @@
         </main>
         
 
-        <script src="../js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
     </body>
 </html>
