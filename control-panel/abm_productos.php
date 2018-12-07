@@ -2,6 +2,8 @@
       
       
     <?php 
+  
+  include("../config/mysql.php");
 
 try {
     $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
@@ -34,7 +36,7 @@ catch (PDOException $e) {
             <?=$productsMenu?>
             <hr>
             <br>
-            <a href="#"><button type="button" class="btn btn-success text-center" title="Nuevo Producto">Nuevo Producto</button></a>
+            <a href="index.php??seccion=abm_productos_alta"><button type="button" class="btn btn-success text-center" title="Nuevo Producto">Nuevo Producto</button></a>
           </h1>
           <br>
            
@@ -70,9 +72,9 @@ catch (PDOException $e) {
 						  <td>
 						      <a href="#"><button type="button" class="btn btn-info" title="Modificar">M</button></a>
 							  <a href="#"><button type="button" class="btn btn-danger" title="Borrar">X</button></a>
-                              <?php if($a > 0){ ?><a href="#"><button type="button" class="btn btn-warning" title="Desactivar">Desactivar</button></a>
+                              <?php if($a > 0){ ?><a href="#"><button type="button" class="btn btn-warning" title="Desactivar" onclick="cambiarEstado(<?=$row['ID_Articulo'];?>)">Desactivar</button></a>
                               <?php }else{ ?>
-                              <a href="#"><button type="button" class="btn btn-success" title="Activar">Activar</button></a>
+                              <a href="#"><button type="button" class="btn btn-success" title="Activar" onclick="change()" >Activar</button></a>
                               <?php } ?>
 					      </td>
 						</tr>
@@ -84,3 +86,26 @@ catch (PDOException $e) {
           
       </div><!--/row-->
 	</div><!--/.container-->
+	
+<script language="Java Script" type="text/javascript">
+function cambiarEstado(n){
+	<?php
+      $sql = "UPDATE articulos SET activo = 0 WHERE ID_articulo ="n"";
+
+      $update = $con->query($sql);
+ 
+	?>
+
+}
+</script>
+
+<script>
+function change(){
+	<?php
+      $sql = "UPDATE articulos SET activo = 1";
+
+      $update = $con->query($sql);
+	?>
+
+}
+</script>
