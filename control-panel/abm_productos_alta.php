@@ -1,17 +1,17 @@
 <?php 
 //include ('config/mysql.php');
 try {
-    $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
+  $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
 ?>
 <script>
-    console.log("Conexion Exitosa");
+  console.log("Conexion Exitosa");
 </script>
 <?php
-    //print "Conexión exitosa!";
+  //print "Conexión exitosa!";
 }
 catch (PDOException $e) {
-    print "¡Error!: " . $e->getMessage();
-    die();
+  print "¡Error!: " . $e->getMessage();
+  die();
 }
 $marca = "SELECT * FROM marca";
 $cat = "SELECT * FROM categoria";
@@ -28,40 +28,40 @@ $subc = "SELECT * FROM subcategoria";
     <input type="text" class="form-control" id="nombreArticulo" aria-describedby="Nombre" placeholder="Ingrese el nombre del artículo">
     <small id="Nombre" class="form-text text-muted">Debe ser inferior a 100 caractéres.</small>
   </div>
-<!-- SELECCIONAR MARCA -->
+  <!-- SELECCIONAR MARCA -->
   <div class="form-group">
     <label for="exampleSelect1">Seleccionar Marca</label>
     <select class="form-control" id="exampleSelect1">
       <?php 
-        $art = $con->query($marca);
-        foreach($art as $row){ ?>
-          <option id="<?=$row['ID_Marca'];?>"><?=$row['Nombre_Marca'];?></option>  
-        <?php } ?>
+      $art = $con->query($marca);
+      foreach($art as $row){ ?>
+      <option id="<?=$row['ID_Marca'];?>"><?=$row['Nombre_Marca'];?></option>  
+      <?php } ?>
     </select>
   </div>
   <!-- SELECCIONAR CATEGORIA -->
-    <div class="form-group">
+  <div class="form-group">
     <label for="exampleSelect2">Seleccionar Categoría</label>
     <select class="form-control" id="exampleSelect2">
       <?php 
-        $art2 = $con->query($cat);
-        foreach($art2 as $row){ ?>
-          <option id="<?=$row['ID_Categoria'];?>"><?=$row['Nombre_Categoria'];?></option>  
-        <?php } ?>
+      $art2 = $con->query($cat);
+      foreach($art2 as $row){ ?>
+      <option id="<?=$row['ID_Categoria'];?>"><?=$row['Nombre_Categoria'];?></option>  
+      <?php } ?>
     </select>
   </div>
-     
-     <!--  subcategoria -->
-      <div class="form-group">
+
+  <!--  subcategoria -->
+  <div class="form-group">
     <label for="exampleSelect2">Seleccionar Categoría</label>
     <select name="subcategoria" class="form-control" id="subcateogira">
-      
-          <option value=""></option>  
-        
+
+      <option value=""></option>  
+
     </select>
   </div>
-  
-  
+
+
   <div class="form-group">
     <label for="categoria">Example multiple select</label>
     <select multiple class="form-control" id="categoria">
@@ -90,13 +90,13 @@ $subc = "SELECT * FROM subcategoria";
       </label>
     </div>
     <div class="form-check">
-    <label class="form-check-label">
+      <label class="form-check-label">
         <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
         Option two can be something else and selecting it will deselect option one
       </label>
     </div>
     <div class="form-check disabled">
-    <label class="form-check-label">
+      <label class="form-check-label">
         <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
         Option three is disabled
       </label>
@@ -117,27 +117,27 @@ $subc = "SELECT * FROM subcategoria";
 
 
 <script>
-$(document).ready(function(){
+  $(document).ready(function(){
     $('action').change(function(){
-        if($(this).val() != ''){
+      if($(this).val() != ''){
         var action = $(this).Attr("id");
         var query = $(this).val();
         var result = '';
         if (action == "categoria")
-            {
-                result = 'subcategoria';
-            }
-        $.ajax({
-            url:"prosaltacat.php",
-            method: "POST",
-            data:{action:action, query:query},
-            sucess:function(data){
-                $('#'+result).html(data);
-            }
-        })
+        {
+          result = 'subcategoria';
         }
+        $.ajax({
+          url:"prosaltacat.php",
+          method: "POST",
+          data:{action:action, query:query},
+          sucess:function(data){
+            $('#'+result).html(data);
+          }
+        })
+      }
     })
-})
+  })
 
 
 </script>

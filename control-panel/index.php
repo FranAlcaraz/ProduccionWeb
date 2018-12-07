@@ -18,13 +18,13 @@
             }
         </style>
         <?php include('includes/header-control.php'); 
-            include('../config/mysql.php');
+        include('../config/mysql.php');
         ?>
     </head>
     <body>
         <main role="main" class="container">
             <?php $secc = isset($_GET['seccion']) ? $_GET['seccion'] : 'home'; 
-            
+
             switch($secc){
                 case 'abm_productos':
                 case 'abm_productos_alta':
@@ -34,14 +34,14 @@
                 case 'detalle':
                 case 'abm_productos':
                     include($secc.'.php');
-                break;
+                    break;
                 default:
                     include('error.php');
             }
             ?> 
 
         </main>
-        
+
 
         <script src="../js/bootstrap.min.js"></script>
 

@@ -18,44 +18,44 @@
             }
         </style>
         <?php include('includes/header-control.php'); 
-            include('../config/mysql.php');
+        include('../config/mysql.php');
         ?>
     </head>
 
-     
-     <div class="container-fluid">
-      
-      <?php
-	
-         $producto = $_GET["edit"];
-         
-         
-    $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
-         
-         
-            
-         $select = "SELECT * FROM articulos WHERE ID_Articulo = $producto";
-         $producto = $con->query($select);
-?>
-	
-	
-	 <div class="col-sm-9 col-md-10 main">
-          
-          <!--toggle sidebar button-->
 
-          
-	  <h1 class="page-header">
-	  
-         </h1>
-         
-         
-         <div class="alert alert-danger">
-             
-             
-              <strong>ALERTA!</strong> <br>Esta Seguro de querer eliminar el registro?
+    <div class="container-fluid">
+
+        <?php
+
+        $producto = $_GET["edit"];
+
+
+        $con = new PDO('mysql:host='.$hostname.';dbname='.$database.';port='.$port, $username,$password);
+
+
+
+        $select = "SELECT * FROM articulos WHERE ID_Articulo = $producto";
+        $producto = $con->query($select);
+        ?>
+
+
+        <div class="col-sm-9 col-md-10 main">
+
+            <!--toggle sidebar button-->
+
+
+            <h1 class="page-header">
+
+            </h1>
+
+
+            <div class="alert alert-danger">
+
+
+                <strong>ALERTA!</strong> <br>Esta Seguro de querer eliminar el registro?
             </div>
-            
+
             <button type="button" class="btn btn-danger">Danger</button>
             <button type="button" class="btn btn-primary">Link</button>
-         </div>
+        </div>
     </div>
